@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>个人社保计算软件</title>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> 
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 --> 
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function calc(){
+			//1.取出文本框里的值
+			sal=document.getElementById("salary").value;
+			salnum=parseInt(sal);//字符串变成数字
+			//2.计算
+			ylgr=salnum*0.08;//个人交的养老金
+			ylgs=salnum*0.2;//
+			ybgr=salnum*0.02;
+			ybgs=salnum*0.06;
+			sygr=salnum*0.005;
+		    sygs=salnum*0.015;
+			gs=salnum*0.005;
+			sy=salnum*0.008;
+			gjjgr=salnum*0.12;
+			gjjgs=salnum*0.12;
+			grhj=ylgr+ybgr+sygr+gjjgr;
+			gshj=ylgs+ybgs+sygs+gs+sy+gjjgs;
+			
+			//3.把计算结果放到单元格里
+			document.getElementById("ylgr").innerText=ylgr;
+			document.getElementById("ylgs").innerText=ylgs;
+			document.getElementById("ybgr").innerText=ybgr;
+			$("#ybgs").text(ybgs);
+			$("#sygr").text(sygr);
+			$("#sygs").text(sygs);
+			$("#gs").text(gs);
+			$("#sy").text(sy);
+			$("#gjjgr").text(gjjgr);
+			$("#gjjgs").text(gjjgs);
+			$("#grhj").text(grhj);
+			$("#gshj").text(gshj);
+			$("#total").text(salnum+gshj);
+		}
+	</script>
+	</head>
+	<body>
+		<div class="container">
+			<h2>ddddddddd</h2>
+			<table class="table table-bordered text-center">   
+			<tr>
+			<td>GZ</td>
+				<td colspan="3">
+					<input class="form-control" type="text" id="salary"/>
+				</td>
+				<td>
+					<button onclick="calc()" class="btn btn-danger btn-block">JS</button>					
+				</td>
+			</tr>			
+			<tr class="bg-primary">
+				<td>SZ</td>
+				<td>GR</td>
+				<td>GR%</td>
+				<td>GS</td>
+				<td>GS%</td>
+			</tr>
+			<tr>
+				<td>YL</td>
+				<td>8%</td>
+				<td id="ylgr"></td>
+				<td>20%</td>
+				<td id="ylgs"></td>
+			</tr>
+			<tr>
+				<td>YB</td>
+				<td>2%</td>
+				<td id="ybgr"></td>
+				<td>6%</td>
+				<td id="ybgs"></td>
+			</tr>
+			<tr>
+				<td>SY</td>
+				<td>0.5%</td>
+				<td id="sygr"></td>
+				<td>1.5%</td>
+				<td id="sygs"></td>
+			</tr>
+			<tr>
+				<td>GS</td>
+				<td></td>
+				<td></td>
+				<td>0.5%</td>
+				<td id="gs"></td>
+			</tr>
+			<tr>
+				<td>SY</td>
+				<td></td>
+				<td></td>
+				<td>0.8%</td>
+				<td id="sy"></td>
+			</tr>
+			<tr>
+				<td>GJJ</td>
+				<td>12%</td>
+				<td id="gjjgr"></td>
+				<td>12%</td>
+				<td id="gjjgs"></td>
+			</tr>
+			<tr>
+				<td>HJ</td>
+				<td>GRHJ</td>
+				<td id="grhj"></td>
+				<td>GSHJ</td>
+				<td id="gshj"></td>
+			</tr>
+			<tr>
+				<td>ZE</td>
+				<td colspan="4" id="total"></td>
+			</tr>
+			</table>
+		</div>
+	</body>
+</html>
